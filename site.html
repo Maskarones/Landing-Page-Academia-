@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia Exemplo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Academia Exemplo</h1>
+        <nav>
+            <ul>
+                <li><a href="site.html">Home</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="matricula.php">Matrícula</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seções "Início" e "Sobre" lado a lado -->
+        <div class="flex-container">
+            <section id="sobre" class="flex-item">
+                <h2>Sobre Nós</h2>
+                <p>Bem-vindo à Academia Exemplo! Nossa missão é promover saúde e bem-estar através de um ambiente acolhedor e motivador. Desde a nossa fundação, em 2020, trabalhamos para oferecer um espaço onde cada indivíduo possa se encontrar.</p>
+            </section>
+        </div>
+
+        <!-- Seção de Serviços com Carrossel -->
+        <section id="servicos" class="carousel-container">
+            <h2>Serviços</h2>
+            <div class="carousel">
+                <div class="carousel-item">
+                    <h3>Musculação</h3>
+                    <p>Equipamentos modernos e assistência de profissionais.</p>
+                </div>
+                <div class="carousel-item">
+                    <h3>Yoga</h3>
+                    <p>Ambiente calmo para práticas de equilíbrio e relaxamento.</p>
+                </div>
+                <div class="carousel-item">
+                    <h3>Pilates</h3>
+                    <p>Aulas voltadas para fortalecimento e flexibilidade.</p>
+                </div>
+                <div class="carousel-item">
+                    <h3>Aulas de dança</h3>
+                    <p>Divirta-se enquanto se exercita com aulas dinâmicas.</p>
+                </div>
+            </div>
+            <!-- Botões de navegação -->
+            <button class="carousel-button prev">◀</button>
+            <button class="carousel-button next">▶</button>
+        </section>
+
+        <!-- Seção de Contato -->
+        <section id="contato">
+            <h2>Formas de Contato</h2>
+            <p>Entre em contato conosco através dos seguintes canais:</p>
+
+            <div class="contato-info">
+                <div class="contato-item">
+                    <h3>Telefone</h3>
+                    <p>(777) 4002-8922</p>
+                </div>
+                <div class="contato-item">
+                    <h3>Endereço</h3>
+                    <p>CSG 09, Lotes 11/12/15/16, Taguatinga Sul</p>
+                </div>
+                <div class="contato-item">
+                    <h3>Redes Sociais</h3>
+                    <p>
+                        <a href="https://facebook.com/academiaexemplo" target="_blank">Facebook</a> |
+                        <a href="https://instagram.com/academiaexemplo" target="_blank">Instagram</a> |
+                        <a href="https://twitter.com/academiaexemplo" target="_blank">Twitter</a>
+                    </p>
+                </div>
+                <div class="contato-item">
+                    <h3>E-mail</h3>
+                    <p><a href="mailto:academiaxerecas@gmail.com">academiaxerecas@gmail.com</a></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Academia Exemplo. Todos os direitos reservados.<br>
+            DirectBy: Guilherme Araujo Mousinho, Mylla Alves, Marco, Randerson, Andre Marques
+        </p>
+    </footer>
+
+    <script>
+        // Seleciona os elementos do carrossel
+        const carousel = document.querySelector('.carousel');
+        const items = document.querySelectorAll('.carousel-item');
+        const prevButton = document.querySelector('.carousel-button.prev');
+        const nextButton = document.querySelector('.carousel-button.next');
+
+        let currentIndex = 0;
+
+        // Função para atualizar a posição do carrossel
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        // Event listeners para os botões
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : items.length - 1;
+            updateCarousel();
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex < items.length - 1) ? currentIndex + 1 : 0;
+            updateCarousel();
+        });
+    </script>
+
+</body>
+</html>
